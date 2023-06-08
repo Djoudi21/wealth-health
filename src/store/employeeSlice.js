@@ -58,6 +58,13 @@ export const employeeSlice = createSlice({
 
         setIsCreated: (state, action) => {
             state.isCreated =  action.payload
+        },
+
+        addEmployee: (state, action) => {
+            console.log(action.payload)
+            console.log(state.state)
+
+            // state.employees = [...state.employees, action.payload]
         }
     }
 })
@@ -73,7 +80,8 @@ export const {
     setState,
     setZipCode,
     setDepartment,
-    setIsCreated
+    setIsCreated,
+    addEmployee
 } = employeeSlice.actions
 
 export default employeeSlice.reducer
