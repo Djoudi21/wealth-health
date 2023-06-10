@@ -4,9 +4,9 @@ export default function Select(props) {
     };
 
     return (
-        <>
-            <label htmlFor={props.id}>{props.label}</label>
-            <select onChange={setSelectValue} name={props.name} id={props.id}>
+        <div className="col-md-4 mb-3">
+            <label className="form-label" htmlFor={props.id}>{props.label}</label>
+            <select  className="form-select mb-3" onChange={setSelectValue} name={props.name} id={props.id}>
                 {props.options.map((option, index) => {
                     return option.abbreviation.length ? (
                         <option value={option.abbreviation} key={index}>{option.name}</option>
@@ -15,6 +15,6 @@ export default function Select(props) {
                     );
                 })}
             </select>
-        </>
+        </div>
     );
 }
