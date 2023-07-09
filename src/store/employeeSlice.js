@@ -62,6 +62,10 @@ export const employeeSlice = createSlice({
 
         addEmployee: (state, action) => {
             state.employees = [...state.employees, action.payload]
+        },
+
+        removeLastEmployee(state) {
+            state.employees = state.employees.pop()
         }
     }
 })
@@ -79,6 +83,7 @@ export const {
     setDepartment,
     setIsCreated,
     addEmployee,
+    removeLastEmployee
 } = employeeSlice.actions
 
 export default employeeSlice.reducer
