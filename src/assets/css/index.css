@@ -26,3 +26,8 @@ label {
     width: 30rem;
     gap: 20px;
 }
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+}

@@ -12,8 +12,16 @@ export const useForm = () => {
     const [state, setState] = useState('')
     const [zipCode, setZipCode] = useState('')
     const [department, setDepartment] = useState('')
+    const [firstnameMessageError, setFirstnameMessageError] = useState('')
+    const [lastnameMessageError, setLastnameMessageError] = useState('')
+    const [dateOfBirthMessageError, setDateOfBirthMessageError] = useState('')
+    const [startDateMessageError, setStartDateMessageError] = useState('')
+    const [streetMessageError, setStreetMessageError] = useState('')
+    const [cityMessageError, setCityMessageError] = useState('')
+    const [stateMessageError, setStateMessageError] = useState('')
+    const [zipCodeMessageError, setZipCodeMessageError] = useState('')
+    const [departmentMessageError, setDepartmentMessageError] = useState('')
     const dispatch = useDispatch()
-
     const statesOptions = [
         {
             name: "Select a value",
@@ -296,10 +304,119 @@ export const useForm = () => {
             zipCode,
             department
         }
-
+        const isValid = validateForm()
+        if(!isValid) {
+            return null
+        }
         dispatch(addEmployee(employee))
         dispatch(setIsCreated(true))
     }
+
+    function validateForm(){
+        const isFirstnameValid = validateFirstname()
+        const isLastnameValid = validateLastname()
+        const isDateOfBirthValid = validateDateOfBirth()
+        const isStartDateValid = validateStartDate()
+        const isStreetValid = validateStreet()
+        const isCityValid = validateCity()
+        const isStateValid = validateState()
+        const isZipCodeValid = validateZipCode()
+        const isDepartmentValid = validateDepartment()
+        return (
+            isFirstnameValid &&
+            isLastnameValid &&
+            isDateOfBirthValid &&
+            isStartDateValid &&
+            isStreetValid &&
+            isCityValid &&
+            isStateValid &&
+            isZipCodeValid &&
+            isDepartmentValid
+        )
+    }
+
+    function validateFirstname() {
+         if(firstname.length === 0 ) {
+         setFirstnameMessageError('Ajouter un prénom')
+             return false
+         } else {
+             return true
+         }
+    }
+
+    function validateLastname() {
+        if(lastname.length === 0 ) {
+            setLastnameMessageError('Ajouter un nom de famille')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateDateOfBirth() {
+        if(dateOfBirth.length === 0 ) {
+            setDateOfBirthMessageError('Ajouter une date de naissance')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateStartDate() {
+        if(startDate.length === 0 ) {
+            setStartDateMessageError('Ajouter une date de début')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateStreet() {
+        if(street.length === 0 ) {
+            setStreetMessageError('Ajouter une rue')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateCity() {
+        if(city.length === 0 ) {
+            setCityMessageError('Ajouter une ville')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateState() {
+        if(state.length === 0 ) {
+            setStateMessageError('Ajouter un état')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateZipCode() {
+        if(zipCode.length === 0 ) {
+            setZipCodeMessageError('Ajouter un code postal')
+            return false
+        } else {
+            return true
+        }
+    }
+
+    function validateDepartment() {
+        if(department.length === 0 ) {
+            setDepartmentMessageError('Ajouter un département')
+            return false
+        } else {
+            return true
+        }
+    }
+
+
 
     function handleSetFirstname(data) {
         setFirstname(data)
@@ -349,6 +466,24 @@ export const useForm = () => {
         handleSetStartDate,
         handleSubmit,
         statesOptions,
-        departmentsOptions
+        departmentsOptions,
+        firstnameMessageError,
+        setFirstnameMessageError,
+        lastnameMessageError,
+        setLastnameMessageError,
+        dateOfBirthMessageError,
+        setDateOfBirthMessageError,
+        startDateMessageError,
+        setStartDateMessageError,
+        streetMessageError,
+        setStreetMessageError,
+        cityMessageError,
+        setCityMessageError,
+        stateMessageError,
+        setStateMessageError,
+        zipCodeMessageError,
+        setZipCodeMessageError,
+        departmentMessageError,
+        setDepartmentMessageError,
     }
 }

@@ -15,6 +15,7 @@ export default function Select(props) {
                     );
                 })}
             </select>
+            <p className="error-message">{props.error && props.error}</p>
         </div>
     );
 }
