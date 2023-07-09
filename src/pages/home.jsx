@@ -1,7 +1,6 @@
 import Form from "../components/Form";
 import { Link } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-// import {useState} from "react";
 import {Modal} from '@djoudi21/react-modal-oc'
 import {setIsCreated} from "../store/employeeSlice";
 import '../assets/css/index.css'
@@ -9,8 +8,6 @@ import '../assets/css/index.css'
 export default function Home() {
     const isCreated = useSelector(state => state.employee.isCreated)
     const dispatch = useDispatch()
-    function saveEmployee() {
-    }
 
     function closeModal(value){
         dispatch(setIsCreated(value))
@@ -20,7 +17,6 @@ export default function Home() {
         <div className="container-fluid">
             <h1 className="display-1 p-lg-5 text-center">HR net</h1>
             <div className="container">
-                {/*className={`${stylesIndex.flexCenter}`}*/}
                 <div className="mb-4 mt-4">
                     <Link to={'/employee-list'} >
                         View Current Employees
