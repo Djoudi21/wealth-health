@@ -11,13 +11,12 @@ export default function EmployeeList() {
         <div id="employee-div" className="container-fluid">
             <h1 className="display-1 p-lg-5 text-center">Current Employee</h1>
             <div className="container">
-                <div className="mb-4 mt-4">
-                    <Link to={'/'}  >
-                        Home
-                    </Link>
-                </div>
-                <h2 className="mb-4">Employee Informations</h2>
                 {tableSection()}
+            </div>
+            <div className="home-link">
+                <Link to={'/'}  >
+                    Home
+                </Link>
             </div>
         </div>
     )

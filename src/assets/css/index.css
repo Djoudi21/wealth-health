@@ -31,3 +31,10 @@ label {
     color: red;
     margin-top: 5px;
 }
+
+.home-link {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
